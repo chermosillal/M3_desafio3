@@ -1,0 +1,47 @@
+<!-- Construye una página web 4_colores.html con las siguientes características (Total:
+5 puntos) -->
+
+<!-- 
+● Crea 4 divs que tengan alto y ancho de 200px y de colores azul, rojo, verde y
+amarillo (insertar estilos con atributo style). Cada uno de los divs debe tener
+un identificador único. (1 Punto)
+
+● Dentro del script agrega el evento para que al hacer click a cada uno de los
+divs, este cambie de color al color negro. Utiliza addEventListener para
+agregar el evento. (1 Punto) 
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="cuerpo">
+        <div id="divAzul" style="background-color: blue; width: 200px; height: 200px;"></div>
+        <div id="divRojo" style="background-color: red; width: 200px; height: 200px;"></div>
+        <div id="divVerde" style="background-color: green; width: 200px; height: 200px;"></div>
+        <div id="divAmarillo" style="background-color: yellow; width: 200px; height: 200px;"></div>
+
+    </div>
+</body>
+</html>
+    <script>
+        // Seleccionar los divs por sus identificadores
+        const divAzul = document.getElementById("divAzul")
+        const divRojo = document.getElementById("divRojo")
+        const divVerde = document.getElementById("divVerde")
+        const divAmarillo = document.getElementById("divAmarillo")
+
+        // Función para cambiar el color de fondo a negro
+        function cambiarColor() {
+            this.style.backgroundColor = "black"
+        }
+        // Agregar eventos a cada div
+        divAzul.addEventListener("click", cambiarColor)
+        divRojo.addEventListener("click", cambiarColor)
+        divVerde.addEventListener("click", cambiarColor)
+        divAmarillo.addEventListener("click", cambiarColor)
+    </script>
