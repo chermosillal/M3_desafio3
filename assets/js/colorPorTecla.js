@@ -17,18 +17,6 @@ document.addEventListener("keydown", function(event) {
         color = "skyblue" // Celeste
         tecla = "Se presionó la Tecla d"
         cuadro.style.backgroundColor = color
-    }else if (event.key === 'q'){
-        color = "purple" // Morado
-        tecla = "Se presionó la Tecla q"
-        cuadro.style.backgroundColor = color
-    }else if (event.key === 'w'){
-        color = "gray" // Gris
-        tecla = "Se presionó la Tecla w"
-        cuadro.style.backgroundColor = color
-    }else if (event.key === 'e'){
-        color = "brown" // Café
-        tecla = "Se presionó la Tecla e"
-        cuadro.style.backgroundColor = color
     }else {
         color = "white" //blanco
         tecla = "Se presionó Otra tecla"
@@ -39,4 +27,43 @@ document.addEventListener("keydown", function(event) {
 
 });
 
+function presionaTecla() {
+    // Obtener el div existente con el id "cuerpo"
+    const cuerpo = document.getElementById('cuerpo');
+    // Variable para que nuevo div no exista al cargar la pagina
+    let nuevoDiv = null;
 
+    // Escuchar eventos de teclado
+    document.addEventListener('keydown', function(event) {
+        const key = event.key.toLowerCase();
+
+        if (key === 'q' || key === 'w' || key === 'e') {
+            // Si el div no existe, crearlo
+            if (!nuevoDiv) {
+                nuevoDiv = document.createElement('div');
+                nuevoDiv.style.width = '200px';
+                nuevoDiv.style.height = '200px';
+                nuevoDiv.style.border = '2px solid black';
+                cuerpo.appendChild(nuevoDiv);
+            }
+
+            // Cambiar el color de fondo según la tecla presionada
+            if (key === 'q') {
+                nuevoDiv.style.backgroundColor = 'purple';
+            } else if (key === 'w') {
+                nuevoDiv.style.backgroundColor = 'gray';
+            } else if (key === 'e') {
+                nuevoDiv.style.backgroundColor = 'brown';
+            }
+        } else {
+            // Si se presiona una tecla no válida, eliminar el div
+            if (nuevoDiv) {
+                cuerpo.removeChild(nuevoDiv);
+                nuevoDiv = null;
+            }
+        }
+    });
+}
+
+// Llamar la función
+presionaTecla();
