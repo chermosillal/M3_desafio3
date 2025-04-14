@@ -30,22 +30,17 @@ document.addEventListener("keydown", function(event) {
 function presionaTecla() {
     // Obtener el div existente con el id "cuerpo"
     const cuerpo = document.getElementById('cuerpo');
-    // Variable para que nuevo div no exista al cargar la pagina
-    let nuevoDiv = null;
 
     // Escuchar eventos de teclado
     document.addEventListener('keydown', function(event) {
         const key = event.key.toLowerCase();
 
         if (key === 'q' || key === 'w' || key === 'e') {
-            // Si el div no existe, crearlo
-            if (!nuevoDiv) {
-                nuevoDiv = document.createElement('div');
-                nuevoDiv.style.width = '200px';
-                nuevoDiv.style.height = '200px';
-                nuevoDiv.style.border = '2px solid black';
-                cuerpo.appendChild(nuevoDiv);
-            }
+            let nuevoDiv = document.createElement('div');
+            nuevoDiv.style.width = '200px';
+            nuevoDiv.style.height = '200px';
+            nuevoDiv.style.border = '2px solid black';
+            cuerpo.appendChild(nuevoDiv);
 
             // Cambiar el color de fondo según la tecla presionada
             if (key === 'q') {
@@ -54,12 +49,6 @@ function presionaTecla() {
                 nuevoDiv.style.backgroundColor = 'gray';
             } else if (key === 'e') {
                 nuevoDiv.style.backgroundColor = 'brown';
-            }
-        } else {
-            // Si se presiona una tecla no válida, eliminar el div
-            if (nuevoDiv) {
-                cuerpo.removeChild(nuevoDiv);
-                nuevoDiv = null;
             }
         }
     });
